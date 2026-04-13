@@ -10,19 +10,19 @@ dotenv.config();
   imports: [
     ClientsModule.register([
       {
-        name: 'USERS_SERVICE',
+        name: process.env.USERS_KEY,
         transport: Transport.TCP,
         options: {
-          host: '127.0.0.1',
-          port: Number(process.env.PORT_USERS),
+          host: process.env.USERS_HOST,
+          port: Number(process.env.USERS_PORT),
         },
       },
       {
-        name: 'NEWS_SERVICE',
+        name: process.env.NEWS_KEY,
         transport: Transport.TCP,
         options: {
-          host: '127.0.0.1',
-          port: Number(process.env.PORT_NEWS),
+          host: process.env.NEWS_HOST,
+          port: Number(process.env.NEWS_PORT),
         },
       },
     ]),

@@ -1,7 +1,13 @@
 namespace NodeJS {
   interface ProcessEnv {
     PORT_GATEWAY: string;
-    PORT_NEWS: string;
-    PORT_USERS: string;
+
+    NEWS_PORT: string;
+    NEWS_KEY: string;
+    NEWS_HOST: string;
+
+    USERS_PORT: string;
+    USERS_KEY: string;
+    USERS_HOST: string;
   }
 }
