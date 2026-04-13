@@ -10,18 +10,18 @@ dotenv.config();
   imports: [
     ClientsModule.register([
       {
-        name: process.env.USERS_KEY,
+        name: process.env.USERS_KEY || "",
         transport: Transport.TCP,
         options: {
-          host: process.env.USERS_HOST,
+          host: process.env.USERS_HOST || "",
           port: Number(process.env.USERS_PORT),
         },
       },
       {
-        name: process.env.NEWS_KEY,
+        name: process.env.NEWS_KEY || "",
         transport: Transport.TCP,
         options: {
-          host: process.env.NEWS_HOST,
+          host: process.env.NEWS_HOST || "",
           port: Number(process.env.NEWS_PORT),
         },
       },
