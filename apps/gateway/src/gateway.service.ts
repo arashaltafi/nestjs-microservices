@@ -1,11 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Injectable()
 export class GatewayService {
   constructor(
-    @Inject('USERS_SERVICE') private usersClient: ClientProxy,
-    @Inject('NEWS_SERVICE') private newsClient: ClientProxy,
+    @Inject(process.env.USERS_KEY) private usersClient: ClientProxy,
+    @Inject(process.env.NEWS_KEY) private newsClient: ClientProxy,
   ) { }
 
   getUsers() {
