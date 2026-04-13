@@ -40,7 +40,7 @@ async function bootstrap() {
   app.use(bodyParser.json({ limit: '10mb' }));  // Limit body payload to 10MB
   app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
-  const port = process.env.PORT;
+  const port = process.env.PORT_GATEWAY;
 
   if (!port) {
     throw new Error('PORT environment variable is not defined.');

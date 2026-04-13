@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { GatewayController } from './gateway.controller';
 import { GatewayService } from './gateway.service';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [
@@ -11,7 +14,7 @@ import { GatewayService } from './gateway.service';
         transport: Transport.TCP,
         options: {
           host: '127.0.0.1',
-          port: 3001,
+          port: Number(process.env.PORT_USERS),
         },
       },
       {
@@ -19,7 +22,7 @@ import { GatewayService } from './gateway.service';
         transport: Transport.TCP,
         options: {
           host: '127.0.0.1',
-          port: 3002,
+          port: Number(process.env.PORT_NEWS),
         },
       },
     ]),
